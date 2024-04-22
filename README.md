@@ -58,7 +58,7 @@ cd get_text
 python sst.py
 ```
 
-### Step 1: Extract audio encoding
+### Step 2: Extract audio encoding
 
 The purpose of this step is to reconstruct the audio and extract the audio encoding. Note that the parameters entered need to be the same as those in the previous step.
 
