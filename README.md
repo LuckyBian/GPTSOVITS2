@@ -129,3 +129,10 @@ python train_sovit.py
 ```
 After training is completed, you can delete the models e4-e20 and keep only e24.
 
+
+#### Step 2: Fine-tune the GPT Model
+
+```
+cd gpt
+
+```
