@@ -123,6 +123,6 @@ python lan.py
 
 ```
 cd vits
-
+python train_sovit.py
 ```
 
