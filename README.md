@@ -127,4 +127,5 @@ Note that in addition to changing the parameters in 'train_sovits.py', you also 
 cd vits
 python train_sovit.py
 ```
+After training is completed, you can delete the models e4-e20 and keep only e24.
 
