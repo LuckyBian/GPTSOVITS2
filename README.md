@@ -16,7 +16,7 @@ pip install -r requirements.txt
 
 ## Step 1: Denoise
 
-The purpose of this step is noise reduction. Note that you need to prepare a Linux system, other systems are not supported for the time being. If your training audio is of high quality, you can skip this step and go directly to step 2.
+Put about 5 minutes of training audio into data/ori. The purpose of this step is noise reduction. Note that you need to prepare a Linux system, other systems are not supported for the time being. If your training audio is of high quality, you can skip this step and go directly to step 2.
 
 ```
 pip install resemble-enhance --upgrade --pre
