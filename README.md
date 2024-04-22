@@ -69,7 +69,14 @@ python get_feature.py
 
 ### Step 3: Extract emotional encoding
 
-The purpose of this step is to obtain the emotional encoding of the audio.
+The purpose of this step is to obtain the emotional encoding of the audio. Note that you need to modify some paths in 'get_semantic.py' and 'lan.py' based on the path to generate the feature previously.
 
 ```
+cd get_emo
+python lan.py
 ```
+
+## Train your own Model: Fine-tune the VITS and GPT Model
+
+### Step 1: Fine-tune the VITS Model
+
