@@ -22,3 +22,11 @@ Put about 5 minutes of training .wav audio into data/ori. The purpose of this st
 pip install resemble-enhance --upgrade --pre
 resemble-enhance data/ori data/denoise
 ```
+## Step 2: Cut
+
+The purpose of this step is to slice the audio to facilitate subsequent training.
+
+```
+cd cut
+python slicer.py
+```
