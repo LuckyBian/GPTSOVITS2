@@ -36,6 +36,8 @@ cd ..
 
 The purpose of this step is to convert the audio into text. The default is Chinese. If you need to adjust it to English, you need to change the parameters manually. Note that the input and output paths need to be adjusted. You can choose 'zh', 'en', 'ja', 'auto'
 
+Note that the first run will take some time to download the pre-trained model to recognize text.
+
 ```
 cd asr
 python asr.py
