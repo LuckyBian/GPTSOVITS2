@@ -3,11 +3,11 @@
 ## SECTION 1 : Some Demo
 
 ### Demo 1:
-[![Sudoku AI Solver](img/cover1.png)](https://youtu.be/eDnNtcXmCNE)
+[![Sudoku AI Solver](img/cover1.png)](https://youtu.be/JDjgfbYW5-Y)
 ### Demo 2:
-[![Sudoku AI Solver](img/cover3.png)](https://youtu.be/eDnNtcXmCNE)
+[![Sudoku AI Solver](img/cover3.png)](https://youtu.be/cGw_zqXFHro)
 ### Demo 3:
-[![Sudoku AI Solver](img/cover2.png)](https://youtu.be/eDnNtcXmCNE)
+[![Sudoku AI Solver](img/cover2.png)](https://youtu.be/4GrtZIZ0PHU)
 
 ## SECTION 2 : EXECUTIVE SUMMARY / PAPER ABSTRACT
 
