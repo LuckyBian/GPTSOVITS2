@@ -121,3 +121,8 @@ python lan.py
 
 #### Step 1: Fine-tune the VITS Model
 
+```
+cd vits
+
+```
+
