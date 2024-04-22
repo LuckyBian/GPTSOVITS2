@@ -1,0 +1,1 @@
+/home/weizhenbian/mycode/model/gpt/guo-e10.ckpt
