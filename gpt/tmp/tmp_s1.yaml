@@ -1,0 +1,42 @@
+data:
+  max_eval_sample: 8
+  max_sec: 54
+  num_workers: 4
+  pad_val: 1024
+inference:
+  top_k: 5
+model:
+  EOS: 1024
+  dropout: 0
+  embedding_dim: 512
+  head: 16
+  hidden_dim: 512
+  linear_units: 2048
+  n_layer: 24
+  phoneme_vocab_size: 512
+  random_bert: 0
+  vocab_size: 1025
+optimizer:
+  decay_steps: 40000
+  lr: 0.01
+  lr_end: 0.0001
+  lr_init: 1.0e-05
+  warmup_steps: 2000
+output_dir: /home/weizhenbian/mycode/features/guo/logs_s1
+pretrained_s1: /home/weizhenbian/mycode/pretrain/GPT-SoVITS/s1bert25hz-2kh-longer-epoch=68e-step=50232.ckpt
+train:
+  batch_size: 6
+  epochs: 10
+  exp_dir: /home/weizhenbian/mycode/features/guo
+  exp_name: guo
+  gpu_numbers: '0'
+  gradient_clip: 1.0
+  half_weights_save_dir: /home/weizhenbian/mycode/model
+  if_dpo: false
+  if_save_every_weights: true
+  if_save_latest: true
+  precision: 16-mixed
+  save_every_n_epoch: 5
+  seed: 1234
+train_phoneme_path: /home/weizhenbian/mycode/features/guo/2-name2text-0.txt
+train_semantic_path: /home/weizhenbian/mycode/features/guo/6-name2semantic.tsv
