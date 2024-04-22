@@ -45,3 +45,8 @@ cd asr
 python asr.py
 cd ..
 ```
+
+## Train your own Model: Get the Features
+
+### Step 1: Extract pronunciation and text encoding
+
