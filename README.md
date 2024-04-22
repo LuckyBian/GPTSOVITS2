@@ -14,7 +14,9 @@ conda install -y -c conda-forge gcc gxx ffmpeg cmake -c pytorch -c nvidia
 pip install -r requirements.txt
 ```
 
-## Step 1: Denoise
+## Train your own Model: Data Preprocessing
+
+### Step 1: Denoise
 
 Put about 5 minutes of training .wav audio into data/ori. The purpose of this step is noise reduction. Note that you need to prepare a Linux system, other systems are not supported for the time being. If your training audio is of high quality, you can skip this step and go directly to step 2.
 
@@ -22,7 +24,7 @@ Put about 5 minutes of training .wav audio into data/ori. The purpose of this st
 pip install resemble-enhance --upgrade --pre
 resemble-enhance data/ori data/denoise
 ```
-## Step 2: Cut
+### Step 2: Cut
 
 The purpose of this step is to slice the audio to facilitate subsequent training. Note that the input and output paths need to be adjusted.
 
@@ -32,7 +34,7 @@ python slicer.py
 cd ..
 ```
 
-## Step 3: ASR
+### Step 3: ASR
 
 The purpose of this step is to convert the audio into text. The default is Chinese. If you need to adjust it to English, you need to change the parameters manually. Note that the input and output paths need to be adjusted. You can choose 'zh', 'en', 'ja', 'auto'
 
