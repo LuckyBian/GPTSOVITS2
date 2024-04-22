@@ -51,6 +51,9 @@ cd ..
 ### Step 1: Extract pronunciation and text encoding
 
 The purpose of this step is to extract the text encoding and phonetic encoding of the data. The input data is the list and Cut sliced audio extracted by ASR in the previous step. In addition, you need to name the model and use this name in subsequent work.
+
+
+Download the pre-trained model from [here](www.baidu.com) and unzip it and put it in the pretrain folder.
 ```
 cd get_text
 python sst.py
