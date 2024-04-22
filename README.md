@@ -57,3 +57,12 @@ Download the pre-trained model from [here](https://drive.google.com/file/d/1wTg0
 cd get_text
 python sst.py
 ```
+
+### Step 1: Extract audio encoding
+
+The purpose of this step is to reconstruct the audio and extract the audio encoding.
+
+```
+cd get_audio
+python get_feature.py
+```
