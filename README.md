@@ -1,9 +1,10 @@
 # GPTSOVITS2
 
 ## SECTION 1 : PROJECT TITLE
-## A Project Name
 
-## Demo
+### A Project Name
+
+### Demo
 
 ## SECTION 2 : EXECUTIVE SUMMARY / PAPER ABSTRACT
 
