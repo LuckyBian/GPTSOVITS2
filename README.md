@@ -34,8 +34,10 @@ cd ..
 
 ## Step 3: ASR
 
-The purpose of this step is to convert the audio into text. The default is Chinese. If you need to adjust it to English, you need to change the parameters manually. Note that the input and output paths need to be adjusted.
+The purpose of this step is to convert the audio into text. The default is Chinese. If you need to adjust it to English, you need to change the parameters manually. Note that the input and output paths need to be adjusted. You can choose 'zh', 'en', 'ja', 'auto'
 
 ```
-
+cd asr
+python asr.py
+cd ..
 ```
