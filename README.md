@@ -152,10 +152,10 @@ If you don't want to train the model yourself, you can download our trained mode
 
 | Character Name | VITS | GPT |
 |--------|------|-----|
-| Guo Yike  | []() | []() |
-| Liu Mei  | 数据3 | 数据4 |
-| Liu Xing  | 数据5 | 数据6 |
-| Xiao Yu  | 数据7 | 数据8 |
-| Xiao Xue  | 数据9 | 数据10 |
-| Xia Donghai  | 数据11 | 数据12 |
+| Guo Yike  | [guoyike](https://drive.google.com/file/d/1vAKJ-1De1NVrELa4jJnXs_C7s-TYrW-W/view?usp=sharing) | [guoyike](https://drive.google.com/file/d/11gK3yiyZvrFfUxJXOS4LpJj4aeublcYr/view?usp=sharing) |
+| Liu Mei  | [liumei](https://drive.google.com/file/d/15229Op9iaHDEyey66EqxDsum9uULbgql/view?usp=sharing) | [liumei](https://drive.google.com/file/d/1IlLDHiy3OHLDR6sqW6MHprEiV_J3Kx4D/view?usp=drive_link) |
+| Liu Xing  | [liuxing](https://drive.google.com/file/d/13RnOhWw2s4Rg0e6nkZw7GOJKpMKw9oer/view?usp=drive_link) | [liuxing](https://drive.google.com/file/d/1VVcLCYcXLksC0ocqWoEVJfBZ5oUOytgP/view?usp=drive_link) |
+| Xiao Xue  | [xiaoxue](https://drive.google.com/file/d/1uddJeSqBVD6GRe6GngD2L1wntbj0wez4/view?usp=drive_link) | [xiaoxue](https://drive.google.com/file/d/10dDtlRBjTXP6qS-vG3m8I42VN2M9xhd4/view?usp=drive_link) |
+| Xiao Yu  | [xiaoyu](https://drive.google.com/file/d/1KU35gfzqs5xZC4ivm60rEp5x-d1DNd4l/view?usp=drive_link) | [xiaoyu](https://drive.google.com/file/d/1WVHkjeNKBB2fxjDOczCgltiBHYlfa8eq/view?usp=drive_link) |
+| Xia Donghai  | [xiadonghai](https://drive.google.com/file/d/1TCU-7jNmjCC_jKLh5YSyzdAgPBhEk9t8/view?usp=drive_link) | [xiadonghai](https://drive.google.com/file/d/1PZGgEzWr7rmbWL-yQ_30id4oHVJlWQMI/view?usp=drive_link) |
 | Guo Degang | [guodegang](https://drive.google.com/file/d/1k5EypJ2oAHceawobsgJk-IqRnMSw2NoP/view?usp=sharing) | [guodegang](https://drive.google.com/file/d/1ZzR70VS3DVp6gfMDPEYRvOyqGagMEdeN/view?usp=sharing) |
