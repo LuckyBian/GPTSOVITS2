@@ -19,6 +19,6 @@ pip install -r requirements.txt
 Put about 5 minutes of training .wav audio into data/ori. The purpose of this step is noise reduction. Note that you need to prepare a Linux system, other systems are not supported for the time being. If your training audio is of high quality, you can skip this step and go directly to step 2.
 
 ```
-pip install resemble-enhance --upgrade
+pip install resemble-enhance --upgrade --pre
 resemble-enhance data/ori data/denoise
 ```
