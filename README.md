@@ -38,6 +38,8 @@ With the further improvement and optimization of the technology, we expect this 
 
 ## SECTION 4 : BUSINESS VIDEO 
 
+
+
 ## SECTION 5 : USER GUIDE
 
 
@@ -56,6 +58,8 @@ pip install -r requirements.txt
 ```
 
 ### Train your own Model: Data Preprocessing
+
+If you don't want to train the model yourself, you can jump directly to inference.
 
 #### Step 1: Denoise
 
@@ -140,3 +144,9 @@ cd gpt
 ```
 
 After training is completed, you can delete the models e5 and keep only e10.
+
+
+### Inference
+
+If you don't want to train the model yourself, you can download our trained model from here.
+
