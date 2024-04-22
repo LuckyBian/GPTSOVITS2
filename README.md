@@ -24,9 +24,18 @@ resemble-enhance data/ori data/denoise
 ```
 ## Step 2: Cut
 
-The purpose of this step is to slice the audio to facilitate subsequent training.
+The purpose of this step is to slice the audio to facilitate subsequent training. Note that the input and output paths need to be adjusted.
 
 ```
 cd cut
 python slicer.py
+cd ..
+```
+
+## Step 3: ASR
+
+The purpose of this step is to convert the audio into text. The default is Chinese. If you need to adjust it to English, you need to change the parameters manually. Note that the input and output paths need to be adjusted.
+
+```
+
 ```
