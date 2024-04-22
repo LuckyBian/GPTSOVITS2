@@ -31,7 +31,6 @@ The purpose of this step is to slice the audio to facilitate subsequent training
 ```
 cd cut
 python slicer.py
-cd ..
 ```
 
 ### Step 3: ASR
@@ -43,7 +42,6 @@ Note that the first run will take some time to download the pre-trained model to
 ```
 cd asr
 python asr.py
-cd ..
 ```
 
 ## Train your own Model: Get the Features
@@ -53,9 +51,9 @@ cd ..
 The purpose of this step is to extract the text encoding and phonetic encoding of the data. The input data is the list and Cut sliced audio extracted by ASR in the previous step. In addition, you need to name the model and use this name in subsequent work.
 
 
-Download the pre-trained model from [here](www.baidu.com) and unzip it and put it in the pretrain folder.
+Download the pre-trained model from [here](https://drive.google.com/file/d/1wTg0rchyW_WhWCrbVSKargXFf2GsllIk/view?usp=drive_link) and unzip it and put it in the pretrain folder.
+
 ```
 cd get_text
 python sst.py
-cd ..
 ```
