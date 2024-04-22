@@ -1,14 +1,27 @@
 # GPTSOVITS2
 
-## SECTION 1 : PROJECT TITLE
+## SECTION 1 : Some Demo
 
-### A Project Name
-
-### Demo
+### Demo 1:
+### Demo 2:
+### Demo 3:
 
 ## SECTION 2 : EXECUTIVE SUMMARY / PAPER ABSTRACT
 
-Embarking on a PhD is a rigorous academic endeavor. Students are required to deeply engage in specialized fields, collaborating and exchanging insights with global researchers. To excel academically, they continuously delve into, peruse, and dissect numerous scholarly articles. Along this journey, challenges arise, including determining which papers to study, pinpointing their research trajectory, and keeping abreast of groundbreaking studies. While Google Scholar stands as a predominant academic search tool, offering vast scholarly resources, it is not without its limitations.
+### Project Overview:
+This project develops an advanced voice cloning and video synchronization technology that enables users to clone any person's voice and apply it to a video, while adjusting the mouth shape of the person in the video to match the newly generated audio. This technology provides unprecedented flexibility and innovation for creating lifelike videos.
+
+### Technical details:
+The project utilizes deep learning algorithms to analyze and clone the characteristics of the target voice, including pitch, rhythm and intonation. The Sound Clone module captures subtle articulation characteristics to produce audio that closely resembles the original recording. In addition, our video processing technology uses precise facial tracking and image processing technology to adjust the mouth shape in the video to ensure accurate audio and video synchronization and enhance visual and auditory consistency.
+
+### Application scenarios:
+This technology can be widely used in a variety of scenarios, including film post-production, virtual reality, video games, advertising production, and news reporting. Not only can it be used for entertainment and commercial advertising, it can also reproduce the voices and expressions of specific characters in simulated emergencies or training videos, providing a more realistic interactive experience.
+
+### Innovation:
+The innovation of this project is that it combines speech recognition, artificial intelligence synthesis and advanced image processing technology to go beyond simply cloning sounds or editing videos, but to create a comprehensive, multi-modal synchronization system that can operate without Recreate and present any content with the presence of the original audio speaker.
+
+### Future outlook:
+With the further improvement and optimization of the technology, we expect this project to promote the development of personalized media content and provide users with a richer and more customized audio-visual experience. In addition, the development of this technology will also promote the establishment and improvement of relevant legal, ethical and privacy protection standards.
 
 
 ## SECTION 3 : CREDITS / PROJECT CONTRIBUTION
