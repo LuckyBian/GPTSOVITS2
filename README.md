@@ -1,34 +1,28 @@
 # GPTSOVITS2
 
 ## SECTION 1 : PROJECT TITLE
----
 ## A Project Name
 
 ## Demo
----
 
 ## SECTION 2 : EXECUTIVE SUMMARY / PAPER ABSTRACT
----
+
 Embarking on a PhD is a rigorous academic endeavor. Students are required to deeply engage in specialized fields, collaborating and exchanging insights with global researchers. To excel academically, they continuously delve into, peruse, and dissect numerous scholarly articles. Along this journey, challenges arise, including determining which papers to study, pinpointing their research trajectory, and keeping abreast of groundbreaking studies. While Google Scholar stands as a predominant academic search tool, offering vast scholarly resources, it is not without its limitations.
 
----
 
 ## SECTION 3 : CREDITS / PROJECT CONTRIBUTION
----
+
 
 | Official Full Name  | Student ID (MTech Applicable)  | Work Items  | Email (Optional) |
 | :------------ |:---------------:| :-----| :-----|
 | Bian Weizhen  | A0285814W | ALL| E1221626@nus.edu.sg |
 | Liu Siyan     | A0285814W | ALL| E1221626@nus.edu.sg |
 
----
 
 ## SECTION 4 : BUSINESS VIDEO 
----
 
----
 ## SECTION 5 : USER GUIDE
----
+
 
 ### Create the Env:
 ```
@@ -110,4 +104,3 @@ python lan.py
 
 #### Step 1: Fine-tune the VITS Model
 
----
