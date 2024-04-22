@@ -159,3 +159,11 @@ If you don't want to train the model yourself, you can download our trained mode
 | Xiao Yu  | [xiaoyu](https://drive.google.com/file/d/1KU35gfzqs5xZC4ivm60rEp5x-d1DNd4l/view?usp=drive_link) | [xiaoyu](https://drive.google.com/file/d/1WVHkjeNKBB2fxjDOczCgltiBHYlfa8eq/view?usp=drive_link) |
 | Xia Donghai  | [xiadonghai](https://drive.google.com/file/d/1TCU-7jNmjCC_jKLh5YSyzdAgPBhEk9t8/view?usp=drive_link) | [xiadonghai](https://drive.google.com/file/d/1PZGgEzWr7rmbWL-yQ_30id4oHVJlWQMI/view?usp=drive_link) |
 | Guo Degang | [guodegang](https://drive.google.com/file/d/1k5EypJ2oAHceawobsgJk-IqRnMSw2NoP/view?usp=sharing) | [guodegang](https://drive.google.com/file/d/1ZzR70VS3DVp6gfMDPEYRvOyqGagMEdeN/view?usp=sharing) |
+
+
+Pay attention to modifying the path. There are a lot that need to be modified here.
+
+```
+cd inf
+python inf.py
+```
