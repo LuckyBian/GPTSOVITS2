@@ -121,6 +121,8 @@ python lan.py
 
 #### Step 1: Fine-tune the VITS Model
 
+Note that in addition to changing the parameters in 'train_sovits.py', you also need to change the data path in 'data_utils.py'.
+
 ```
 cd vits
 python train_sovit.py
