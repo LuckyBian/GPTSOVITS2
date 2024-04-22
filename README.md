@@ -150,3 +150,12 @@ After training is completed, you can delete the models e5 and keep only e10.
 
 If you don't want to train the model yourself, you can download our trained model from here.
 
+| Character Name | VITS | GPT |
+|--------|------|-----|
+| Guo Yike  | 数据1 | 数据2 |
+| Liu Mei  | 数据3 | 数据4 |
+| Liu Xing  | 数据5 | 数据6 |
+| Xiao Yu  | 数据7 | 数据8 |
+| Xiao Xue  | 数据9 | 数据10 |
+| Xia Donghai  | 数据11 | 数据12 |
+| Altman | 数据9 | 数据10 |
