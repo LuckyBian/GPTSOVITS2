@@ -152,10 +152,10 @@ If you don't want to train the model yourself, you can download our trained mode
 
 | Character Name | VITS | GPT |
 |--------|------|-----|
-| Guo Yike  | 数据1 | 数据2 |
+| Guo Yike  | []() | []() |
 | Liu Mei  | 数据3 | 数据4 |
 | Liu Xing  | 数据5 | 数据6 |
 | Xiao Yu  | 数据7 | 数据8 |
 | Xiao Xue  | 数据9 | 数据10 |
 | Xia Donghai  | 数据11 | 数据12 |
-| Altman | 数据9 | 数据10 |
+| Guo Degang | [guodegang](https://drive.google.com/file/d/1k5EypJ2oAHceawobsgJk-IqRnMSw2NoP/view?usp=sharing) | [guodegang](https://drive.google.com/file/d/1ZzR70VS3DVp6gfMDPEYRvOyqGagMEdeN/view?usp=sharing) |
