@@ -66,3 +66,10 @@ The purpose of this step is to reconstruct the audio and extract the audio encod
 cd get_audio
 python get_feature.py
 ```
+
+### Step 3: Extract emotional encoding
+
+The purpose of this step is to obtain the emotional encoding of the audio.
+
+```
+```
