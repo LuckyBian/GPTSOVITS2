@@ -12,5 +12,13 @@ conda activate gptsovits
 conda install -y -c pytorch -c nvidia cudatoolkit
 conda install -y -c conda-forge gcc gxx ffmpeg cmake -c pytorch -c nvidia
 pip install -r requirements.txt
+```
 
+## Step 1: Denoise
+
+The purpose of this step is noise reduction. Note that you need to prepare a Linux system, other systems are not supported for the time being. If your training audio is of high quality, you can skip this step and go directly to step 2.
+
+```
+pip install resemble-enhance --upgrade --pre
+resemble-enhance data/ori data/denoise
 ```
