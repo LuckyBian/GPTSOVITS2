@@ -5,9 +5,9 @@
 ### Demo 1:
 [![Sudoku AI Solver](img/cover1.png)](https://youtu.be/eDnNtcXmCNE)
 ### Demo 2:
-[![Sudoku AI Solver](img/cover2.png)](https://youtu.be/eDnNtcXmCNE)
-### Demo 3:
 [![Sudoku AI Solver](img/cover3.png)](https://youtu.be/eDnNtcXmCNE)
+### Demo 3:
+[![Sudoku AI Solver](img/cover2.png)](https://youtu.be/eDnNtcXmCNE)
 
 ## SECTION 2 : EXECUTIVE SUMMARY / PAPER ABSTRACT
 
