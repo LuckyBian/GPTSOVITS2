@@ -42,11 +42,27 @@ With the further improvement and optimization of the technology, we expect this 
 
 ## SECTION 5 : USER GUIDE--Voice Clone
 
-
 ### Create the Env:
 ```
 conda create --name gptsovits python=3.10
 conda activate gptsovits
+```
+
+Note: Using a Conda virtual environment may indeed affect the configuration of environment variables, including the lookup of those library files related to NVIDIA CUDA and cuDNN.
+
+If you encounter the following error and cannot find CUDA or CUDNN, you can solve it with the following code.
+
+Cannot find CUDA:
+
+```
+export PATH=/usr/local/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+
+```
+
+Cannot find CUDNN:
+```
+conda install cudatoolkit=xx.x cudnn
 ```
 
 ### Install Package
@@ -167,3 +183,6 @@ Pay attention to modifying the path. There are a lot that need to be modified he
 cd inf
 python inf.py
 ```
+## SECTION 6: Multi-Role Control
+
+Through the following code, you can implement multi-role cross-language (Chinese, English, Japanese) TTS. The code will automatically cut each sentence and reassemble it according to the character. Finally, the speech translation conversion of an entire audio piece is realized (Demo 3).
