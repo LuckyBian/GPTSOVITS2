@@ -1,0 +1,13 @@
+/home/weizhenbian/mycode/asr2/combineaudio/merged_0.00_4.50_2.wav|0.00|4.50|2
+/home/weizhenbian/mycode/asr2/combineaudio/merged_6.99_2.16_3.wav|6.99|2.16|3
+/home/weizhenbian/mycode/asr2/combineaudio/merged_11.06_2.98_1.wav|11.06|2.98|1
+/home/weizhenbian/mycode/asr2/combineaudio/merged_17.70_5.25_3.wav|17.70|5.25|3
+/home/weizhenbian/mycode/asr2/combineaudio/merged_25.02_1.08_4.wav|25.02|1.08|4
+/home/weizhenbian/mycode/asr2/combineaudio/merged_26.30_2.42_5.wav|26.30|2.42|5
+/home/weizhenbian/mycode/asr2/combineaudio/merged_32.06_2.19_3.wav|32.06|2.19|3
+/home/weizhenbian/mycode/asr2/combineaudio/merged_35.32_2.87_4.wav|35.32|2.87|4
+/home/weizhenbian/mycode/asr2/combineaudio/merged_38.81_1.04_3.wav|38.81|1.04|3
+/home/weizhenbian/mycode/asr2/combineaudio/merged_41.11_1.96_5.wav|41.11|1.96|5
+/home/weizhenbian/mycode/asr2/combineaudio/merged_43.45_2.12_3.wav|43.45|2.12|3
+/home/weizhenbian/mycode/asr2/combineaudio/merged_48.18_1.83_4.wav|48.18|1.83|4
+/home/weizhenbian/mycode/asr2/combineaudio/merged_50.16_4.63_5.wav|50.16|4.63|5
