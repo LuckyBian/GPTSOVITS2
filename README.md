@@ -156,7 +156,7 @@ Note that you need to change a lot of paths in 'train_gpt.py'.
 
 ```
 cd gpt
- python train_gpt.py
+python train_gpt.py
 ```
 
 After training is completed, you can delete the models e5 and keep only e10.
