@@ -218,3 +218,9 @@ Then open infall.sh and change the parameters inside, including character name, 
 ```
 bash infall.sh
 ```
+
+Then, run resturcture.py to sort out the output audio.
+
+```
+python resturcture.py
+```
