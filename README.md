@@ -187,10 +187,10 @@ python inf.py
 
 Through the following code, you can implement multi-role cross-language (Chinese, English, Japanese) TTS. The code will automatically cut each sentence and reassemble it according to the character. Finally, the speech translation conversion of an entire audio piece is realized (Demo 3).
 
-First, split the multi-person mixed audio through cut.py. and distinguishing characters by comparing their voice fingerprints. And record the start time, duration, characters and audio path.
+First, split the multi-person mixed audio through cut.py. and distinguishing characters by comparing their voice fingerprints. And record the start time, duration, characters and audio path. Note, when you complete slicing, please open the generated txt file and manually proofread the identified tasks. Make sure the audio is tagged correctly.
 ```
 cd asr2
-python test.py
+python cut.py
 ```
 
 Then, combine the continuous audio of the same character through combine.py.
