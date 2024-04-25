@@ -1,0 +1,1 @@
+/home/weizhenbian/mycode/model/gpt/liumei.ckpt

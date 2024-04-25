@@ -1,0 +1,1 @@
+/home/weizhenbian/mycode/model/vits/liumei.pth

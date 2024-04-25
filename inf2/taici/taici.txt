@@ -1,0 +1,13 @@
+2|0.0|4.5|Freedom, do not wash your feet at night, you must not go to bed.
+3|6.9|2.1|And the child named Liu Xing, did he bully you?
+1|11.0|2.9|Good guy, I won't bully you, I can guarantee you.
+3|17.7|5.2|Ah, my position in this home is not being bullied by others. His starting point is too low.
+4|25.0|1.0|The monkey children had a meal.
+5|26.3|2.4|Come, Xiaoxue, you can sit here and eat more.
+3|32.0|2.1|But the correct health concept is to make people eat less.
+4|35.3|2.8|Aren't you here the first day of today?I don't want to make your mother specialize in welcoming you.
+3|38.8|1.0|It is Liu Xing's mother.
+5|41.1|1.9|Uh, come and try the eggplant I made.
+3|43.4|2.1|I'm not used to eating with the help of others.
+4|48.1|1.8|Come on, don't say that I trust this conclusion too much.
+5|50.1|4.6|Uh, Xiaoxue has a lot of habits. In the future, we all get used to each other slowly.
