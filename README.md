@@ -204,3 +204,17 @@ Finally, it is converted into text through ASR.
 ```
 python asr.py
 ```
+
+The text is then organized in preparation for audio generation.
+
+```
+pip install googletrans==4.0.0-rc1
+cd inf2
+python get_text.py
+```
+
+Then open infall.sh and change the parameters inside, including character name, dictionary, reference audio path, language, etc.
+
+```
+bash infall.sh
+```
