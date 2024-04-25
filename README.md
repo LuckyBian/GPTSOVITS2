@@ -224,3 +224,9 @@ Then, run resturcture.py to sort out the output audio.
 ```
 python resturcture.py
 ```
+
+Finally, all the audio is spliced together through combine.py. And refer to the start time and audio duration to put the audio at the correct position. Finally, combining the generated audio and video can achieve: one-click video language conversion and ensure that the character's timbre remains unchanged.(Demo 3)
+
+```
+python combine.py
+```
