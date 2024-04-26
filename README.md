@@ -6,7 +6,7 @@
 [![Sudoku AI Solver](img/cover4.png)](https://youtu.be/1Ul04rIBl5I)
 ### Demo 2: 虚拟人物演讲展示：香港国际创科展-HKGAI展位
 [![Sudoku AI Solver](img/cover3.png)](https://youtu.be/cGw_zqXFHro)
-### Demo 3: 家有儿女一键翻译
+### Demo 3: 多角色影视剧一键翻译
 [![Sudoku AI Solver](img/cover2.png)](https://youtu.be/4GrtZIZ0PHU)
 
 ## SECTION 2 : EXECUTIVE SUMMARY / PAPER ABSTRACT
