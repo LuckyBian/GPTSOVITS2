@@ -3,7 +3,7 @@
 ## SECTION 1 : Some Demo
 
 ### Demo 1:
-[![Sudoku AI Solver](img/cover1.png)](https://youtu.be/JDjgfbYW5-Y)
+[![Sudoku AI Solver](img/cover4.png)](https://youtu.be/1Ul04rIBl5I)
 ### Demo 2:
 [![Sudoku AI Solver](img/cover3.png)](https://youtu.be/cGw_zqXFHro)
 ### Demo 3:
