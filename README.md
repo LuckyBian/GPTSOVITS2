@@ -311,3 +311,32 @@ face/data/video.mp4
 ```
 python inference.py --checkpoint_path path to wav2lip_gan.pth --face " path to video.mp4" --audio "path to audio.wav"
 ```
+
+## SECTION 8: Evaluation
+
+### Create the Env
+```
+conda create -n re python=3.5
+codna activate re
+```
+### Install Package
+
+```
+cd result_ana
+pip install webrtcvad
+pip install resemblyzer
+```
+
+### Calculate the Similarity
+
+```
+python sim.py
+```
+
+### Cross-similarity between utterances
+
+![Cross-similarity between utterances](img/sim.png)
+
+
+
+
