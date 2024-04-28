@@ -310,5 +310,5 @@ face/data/video.mp4
 ### Create the New Video
 
 ```
-python inference.py --checkpoint_path checkpoints/wav2lip_gan.pth --face "data/video.mp4" --audio "data/input_audio.wav"
+python inference.py --checkpoint_path checkpoints/wav2lip_gan.pth --face "data/video.mp4" --audio "data/audio.wav"
 ```
