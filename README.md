@@ -288,5 +288,23 @@ pip install numba==0.53
 pip install -q youtube-dl
 pip install ffmpeg-python
 pip install librosa==0.9.1
+pip install ipython
 ```
+
+### Test Env
+
+If no error is reported when running test.py, further inference can be made.
+```
+python test.py
+```
+
+### Upload the mp4 and audio file
+
+Upload input_video.mp4 & input_audio.wav files to 'face/data'
+
+```
+face/data/audio.mp3
+face/data/video.mp4
+```
+
 
