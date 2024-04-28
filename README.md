@@ -33,7 +33,7 @@ With the further improvement and optimization of the technology, we expect this 
 | Official Full Name  | Student ID (MTech Applicable)  | Work Items  | Email (Optional) |
 | :------------ |:---------------:| :-----| :-----|
 | Bian Weizhen  | A0285814W | ALL| E1221626@nus.edu.sg |
-| Liu Siyan     | A0285814W | ALL| E1221626@nus.edu.sg |
+| Liu Siyan     | A0285857H | ALL| E1221669@u.nus.edu |
 
 
 ## SECTION 4 : BUSINESS VIDEO 
