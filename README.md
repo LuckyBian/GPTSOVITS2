@@ -378,6 +378,10 @@ python get_sisdr.py
 
 ### Calculate the STOI Score
 
+```
+python get_stoi.py
+```
+
 | Audio File | STOI Score                  |
 |------------|-----------------------------|
 | 1.wav      | 0.02904385896408338        |
