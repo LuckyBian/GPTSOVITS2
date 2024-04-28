@@ -1,5 +1,7 @@
 # GPTSOVITS2
 
+
+
 ## SECTION 1 : Some Demo
 
 ### Demo 1: 虚拟人物演讲展示：中关村论坛-数据安全治理与发展论坛
@@ -9,7 +11,7 @@
 ### Demo 3: 多角色影视剧一键翻译
 [![Sudoku AI Solver](img/cover2.png)](https://youtu.be/4GrtZIZ0PHU)
 
-## SECTION 2 : EXECUTIVE SUMMARY / PAPER ABSTRACT
+## SECTION 2 : EXECUTIVE SUMMARY
 
 ### Project Overview:
 This project develops an advanced voice cloning and video synchronization technology that enables users to clone any person's voice and apply it to a video, while adjusting the mouth shape of the person in the video to match the newly generated audio. This technology provides unprecedented flexibility and innovation for creating lifelike videos.
