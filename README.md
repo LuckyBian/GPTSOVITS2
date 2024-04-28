@@ -230,3 +230,35 @@ Finally, all the audio is spliced together through combine.py. And refer to the 
 ```
 python combine.py
 ```
+
+## SECTION 7: Face
+
+After generating the audio, you can use the face component to combine the audio with the video and make the mouth shape of the characters in the video change with the audio content.
+
+### Create the Env:
+
+```
+conda create --name face python=3.6
+conda activate face
+```
+
+### Test CUDA:
+
+```
+nvcc --version
+```
+The output should something like: 
+```
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2023 NVIDIA Corporation
+Built on Fri_Sep__8_19:17:24_PDT_2023
+Cuda compilation tools, release 12.3, V12.3.52
+Build cuda_12.3.r12.3/compiler.33281558_0
+```
+
+If the CUDA path is lost due to the created virtual environment, you can use the following code to set it.
+```
+export PATH=/usr/local/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+```
+
