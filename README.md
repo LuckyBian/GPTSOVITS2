@@ -278,10 +278,13 @@ wget "https://www.adrianbulat.com/downloads/python-fan/s3fd-619a316812.pth" -O "
 ### Install Packages
 
 ```
-pip install -r requirements.txt
-```
-
-```
+pip install numpy==1.17.1
+pip install opencv-contrib-python==4.2.0.34
+pip install opencv-python==4.1.0.25
+pip install torch==1.1.0
+pip install torchvision==0.3.0
+pip install tqdm==4.45.0
+pip install numba==0.53
 pip install -q youtube-dl
 pip install ffmpeg-python
 pip install librosa==0.9.1
