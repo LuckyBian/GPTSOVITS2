@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.88.1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href=""https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+  
+	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/normalize.css">
+
+	<title>FlashSpeech: Efficient Zero-Shot Speech Synthesis</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    * {
+  box-sizing: border-box;
+  overflow-x: auto; /* 防止水平滚动 */
+}
+
+    .audio-collection {
+  width: fit-content; /* 或者设置一个具体的宽度，使容器适应缩小后的表格 */
+  overflow-x: auto; /* 如果表格仍超出容器范围，允许横向滚动 */
+  overflow-y: hidden;
+}
+
+.audio-small {
+  width: 150px; /* 调整为适当的尺寸 */
+  height: auto; /* 保持高度自动，以避免扭曲 */
+}
+  </style>
+
+</head>
+ 
+<div class="container">
+  
+
+	<header role="banner">
+		
+		
+	</header>
+
+
+<main role="main">
+		<article itemscope itemtype="https://schema.org/BlogPosting">
+
+            <h1 class="entry-title" itemprop="headline" align="center" ><font color="000093"  ><b>GPTSoVITS2</b></font></h1>
+			
+			<section itemprop="entry-text">
+				<br>
+
+
+
+<!--摘要部分-->
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded"> 
+
+  <h2 id="abstract" style="text-align:center;"><font color="000093">Abstract</font></h2>
+  <style>
+    .centered-link {
+      text-align: center;
+    }
+  </style>
+  
+  <!-- <div class="centered-link">
+    <a href="">CODE LINK</a>
+  </div> -->
+
+
+  <p style="text-align: justify;"><font color="061E61">
+    Recent progress in large-scale zero-shot speech synthesis has been significantly advanced by language models and diffusion models.  However, the generation process of both methods is slow and computationally intensive. Efficient speech synthesis using a lower computing budget to achieve quality on par with previous work remains a significant challenge. In this paper, we present FlashSpeech, a large-scale zero-shot speech synthesis system with approximately 5% of the inference time compared with previous work. FlashSpeech is built on the latent consistency model and applies a novel adversarial consistency training approach that can train from scratch without the need for a pre-trained diffusion model as the teacher. Furthermore,  a new prosody generator module enhances the diversity of prosody, making the rhythm of the speech sound more natural.
+    The generation processes of FlashSpeech can be achieved efficiently with one or two sampling steps while maintaining high audio quality and high similarity to the audio prompt for zero-shot speech generation.
+    Our experimental results demonstrate the superior performance of FlashSpeech. Notably, FlashSpeech can be about 20 times faster than other zero-shot speech synthesis systems while maintaining comparable performance in terms of voice quality and similarity. Furthermore, FlashSpeech demonstrates its versatility by efficiently performing tasks like voice conversion, speech editing, and diverse speech sampling.</font></p>
+</div>
+
+
+<h2 id="TTS" style="text-align:center;"><font color="000093">GPTSoVITS2</font></h2>
+  <p style="text-align: center; color: #061E61">Audios</p> 
+  <ul style="list-style-type:square">
+  </ul>
+
+<!-- Part1 文字介绍部分-->
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+
+  <!-- 音频展示部分 -->
+  <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <!-- 音频展示部分 -->
+    <div class="audio-collection">
+      <table id="audioSamplesTable" style="width: 100%; text-align: center;">
+        <tr>
+          <th style="padding: 15px; background-color: #f2f2f2;">Text</th>
+          <th style="padding: 8px; background-color: #f2f2f2;">Ref</th>
+          <th style="padding: 8px; background-color: #f2f2f2;">Audio</th>
+        </tr>
+        <!-- 表格内容 -->
+      </table>
+    </div>
+  </div>
+  
+
+</main>
+
+<style>
+  .center-text {
+    text-align: center; 
+    vertical-align: middle;
+    background-color: #f2f2f2; 
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<script>
+
+
+  const table = document.getElementById("audioSamplesTable");
+
+  const datasets = [
+      "true",
+      "gen"
+  ];
+
+  const text = ['00000','女声四川话，参考音频为中文，生成音频为中文',
+                '郭德纲，参考音频为中文，生成音频为中文',
+                '郭德纲，参考音频为中文，生成音频为英文',
+                '郭毅可，参考音频为中文，生成音频为中文',
+                '郭毅可，参考音频为英文，生成音频为英文',
+                '奥特曼，参考音频为英文，生成音频为英文',
+                '游戏声优，参考音频为日语，生成音频为中文',
+                '动画片女声，参考音频为中文，生成音频为英文',
+                '动画片男声，参考音频为中文，生成音频为英文'];
+
+
+
+  for (let i = 1; i < 10; i++) {
+    let row = document.createElement('tr');
+    let indexCell = document.createElement('td');
+    indexCell.style.verticalAlign = 'middle';
+    indexCell.style.textAlign = 'center';
+    indexCell.style.backgroundColor = '#f2f2f2';
+    indexCell.textContent = text[i];
+    row.appendChild(indexCell);
+
+    datasets.forEach(dataset => {
+      let audioCell = document.createElement('td');
+      let audio = document.createElement('audio');
+      audio.controls = true;
+      let source = document.createElement('source');
+      source.src = `./myoutput/${dataset}/${i}.wav`;
+      source.type = 'audio/wav';
+      source.onerror = function() {
+        audioCell.textContent = 'None';
+        audioCell.className = 'center-text';
+      };
+      audio.appendChild(source);
+      audioCell.appendChild(audio);
+      row.appendChild(audioCell);
+    });
+
+    table.appendChild(row);
+  }
+
+  <!--文字介绍部分-->
+
+</script>
+
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-139981676-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+         HTML: ["input/TeX","output/HTML-CSS"],
+         TeX: {
+                Macros: {
+                         bm: ["\\boldsymbol{#1}", 1],
+                         argmax: ["\\mathop{\\rm arg\\,max}\\limits"],
+                         argmin: ["\\mathop{\\rm arg\\,min}\\limits"]},
+                extensions: ["AMSmath.js","AMSsymbols.js"],
+                equationNumbers: { autoNumber: "AMS" } },
+         extensions: ["tex2jax.js"],
+         jax: ["input/TeX","output/HTML-CSS"],
+         tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true },
+         "HTML-CSS": { availableFonts: ["TeX"],
+                       linebreaks: { automatic: true } }
+     });
+ </script>
+
+ <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+       tex2jax: {
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+       }
+     });
+ </script>
+
+ <script type="text/javascript" async
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+ </script>
+
+
+
+
+</body>
+</html>
