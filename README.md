@@ -326,6 +326,7 @@ cd result_ana
 pip install webrtcvad
 pip install resemblyzer
 pip install pesq
+pip install pystoi
 ```
 
 ### Calculate the Similarity
@@ -374,3 +375,17 @@ python get_sisdr.py
 | 8.wav      | -41.98381423950195         |
 | 9.wav      | -35.990774631500244        |
 
+
+### Calculate the STOI Score
+
+| Audio File | STOI Score                  |
+|------------|-----------------------------|
+| 1.wav      | 0.02904385896408338        |
+| 2.wav      | 0.0827164731441904         |
+| 3.wav      | 0.21747874139387996        |
+| 4.wav      | 0.11072894418181332        |
+| 5.wav      | 0.14871301831783412        |
+| 6.wav      | 0.13340985683988313        |
+| 7.wav      | 0.03817810648779383        |
+| 8.wav      | 0.17083007203318654        |
+| 9.wav      | 0.13853848333712937        |
