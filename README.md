@@ -303,7 +303,7 @@ python test.py
 Upload input_video.mp4 & input_audio.wav files to 'face/data'
 
 ```
-face/data/audio.mp3
+face/data/audio.wav
 face/data/video.mp4
 ```
 
