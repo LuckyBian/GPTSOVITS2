@@ -391,3 +391,10 @@ python get_sisdr.py
 | 9.wav      | 0.13853848333712937        |
 
 ### Detect Fake Audio
+Through the following code, you can determine which audio is real audio and which is synthetic audio. The higher the similarity between the input audio and real audio, the closer it is to real audio rather than synthesized audio. Green is real audio and red is synthetic audio. If the GPTSoVITS synthesis quality is good enough, a large number of red bars will be distributed on the left. On the contrary, the red sound bars will be distributed on the right.
+
+```
+python fake.py
+```
+
+![Detect Fake Audio](img/fake.png)
