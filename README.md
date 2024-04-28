@@ -325,6 +325,7 @@ codna activate re
 cd result_ana
 pip install webrtcvad
 pip install resemblyzer
+pip install pesq
 ```
 
 ### Calculate the Similarity
@@ -333,10 +334,26 @@ pip install resemblyzer
 python sim.py
 ```
 
-### Cross-similarity between utterances
-
 ![Cross-similarity between utterances](img/sim.png)
 
+
+### Calculate the PESQ Score
+
+```
+python get_pesq.py
+```
+| Index   | Score    |
+|---------|----------|
+| 0       | 1.187073 |
+| 1       | 1.133534 |
+| 2       | 1.105380 |
+| 3       | 1.041535 |
+| 4       | 1.091966 |
+| 5       | 1.078970 |
+| 6       | 3.730686 |
+| 7       | 1.178169 |
+| 8       | 1.115258 |
+| Average | 1.406952 |
 
 
 
