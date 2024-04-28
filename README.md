@@ -275,4 +275,14 @@ pip install https://raw.githubusercontent.com/AwaleSajil/ghc/master/ghc-1.0-py3-
 wget "https://www.adrianbulat.com/downloads/python-fan/s3fd-619a316812.pth" -O "face_detection/detection/sfd/s3fd.pth"
 ```
 
+### Install Packages
 
+```
+pip install -r requirements.txt
+```
+
+```
+pip install -q youtube-dl
+pip install ffmpeg-python
+pip install librosa==0.9.1
+```
