@@ -69,9 +69,7 @@
 
 
   <p style="text-align: justify; margin: 30px;"><font color="061E61">
-    Recent progress in large-scale zero-shot speech synthesis has been significantly advanced by language models and diffusion models.  However, the generation process of both methods is slow and computationally intensive. Efficient speech synthesis using a lower computing budget to achieve quality on par with previous work remains a significant challenge. In this paper, we present FlashSpeech, a large-scale zero-shot speech synthesis system with approximately 5% of the inference time compared with previous work. FlashSpeech is built on the latent consistency model and applies a novel adversarial consistency training approach that can train from scratch without the need for a pre-trained diffusion model as the teacher. Furthermore,  a new prosody generator module enhances the diversity of prosody, making the rhythm of the speech sound more natural.
-    The generation processes of FlashSpeech can be achieved efficiently with one or two sampling steps while maintaining high audio quality and high similarity to the audio prompt for zero-shot speech generation.
-    Our experimental results demonstrate the superior performance of FlashSpeech. Notably, FlashSpeech can be about 20 times faster than other zero-shot speech synthesis systems while maintaining comparable performance in terms of voice quality and similarity. Furthermore, FlashSpeech demonstrates its versatility by efficiently performing tasks like voice conversion, speech editing, and diverse speech sampling.</font></p>
+    This project demonstrates the practical application of integrated Text-to-Speech (TTS) technologies to create virtual digital personas by adjusting and combining pre-existing models. The process involves sophisticated speech synthesis techniques to clone the timbre of target voices and articulate modeled text inputs effectively. The core technological approach includes the extraction and encoding of critical speech attributes such as pitch, emotion, and content within a latent discrete space, facilitating the production of audio outputs that embody specific emotional and rhythmic nuances tailored to individual voice characteristics through few-shot learning. Currently, this system supports both Chinese and English and is applied in innovative ways, including virtual character speeches and one-click, tone-preserving translations of cinematic dialogues. This practical deployment of adapted technologies showcases the ability to bridge gaps between existing TTS models and real-world applications, enhancing digital communication and interaction across linguistic and cultural barriers. Future enhancements will focus on refining the precision of text-to-audio outputs to capture more complex emotional expressions, further extending the utility and effectiveness of virtual personas. For more details on this project, please visit</font></p>
 </div>
 
 
@@ -79,6 +77,36 @@
   <p style="text-align: center; color: #061E61; margin: 50px;"></p> 
   <ul style="list-style-type:square">
   </ul>
+
+
+  <div style="display: flex; justify-content: space-around; padding: 20px;">
+    <!-- 第一个视频 -->
+    <div>
+        <video width="320" height="240" controls>
+            <source src="path_to_your_video_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p style="text-align: center;">Video 1 Description</p>
+    </div>
+
+    <!-- 第二个视频 -->
+    <div>
+        <video width="320" height="240" controls>
+            <source src="path_to_your_video_2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p style="text-align: center;">Video 2 Description</p>
+    </div>
+
+    <!-- 第三个视频 -->
+    <div>
+        <video width="320" height="240" controls>
+            <source src="path_to_your_video_3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p style="text-align: center;">Video 3 Description</p>
+    </div>
+</div>
 
 
 <h2 id="TTS" style="text-align:center;"><font color="000093">Audio Display Section</font></h2>
