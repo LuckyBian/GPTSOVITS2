@@ -68,15 +68,21 @@
   </div> -->
 
 
-  <p style="text-align: justify;"><font color="061E61">
+  <p style="text-align: justify; margin: 30px;"><font color="061E61">
     Recent progress in large-scale zero-shot speech synthesis has been significantly advanced by language models and diffusion models.  However, the generation process of both methods is slow and computationally intensive. Efficient speech synthesis using a lower computing budget to achieve quality on par with previous work remains a significant challenge. In this paper, we present FlashSpeech, a large-scale zero-shot speech synthesis system with approximately 5% of the inference time compared with previous work. FlashSpeech is built on the latent consistency model and applies a novel adversarial consistency training approach that can train from scratch without the need for a pre-trained diffusion model as the teacher. Furthermore,  a new prosody generator module enhances the diversity of prosody, making the rhythm of the speech sound more natural.
     The generation processes of FlashSpeech can be achieved efficiently with one or two sampling steps while maintaining high audio quality and high similarity to the audio prompt for zero-shot speech generation.
     Our experimental results demonstrate the superior performance of FlashSpeech. Notably, FlashSpeech can be about 20 times faster than other zero-shot speech synthesis systems while maintaining comparable performance in terms of voice quality and similarity. Furthermore, FlashSpeech demonstrates its versatility by efficiently performing tasks like voice conversion, speech editing, and diverse speech sampling.</font></p>
 </div>
 
 
-<h2 id="TTS" style="text-align:center;"><font color="000093">GPTSoVITS2</font></h2>
-  <p style="text-align: center; color: #061E61">Audios</p> 
+<h2 id="TTS" style="text-align:center;"><font color="000093">Video Display Section</font></h2>
+  <p style="text-align: center; color: #061E61; margin: 50px;"></p> 
+  <ul style="list-style-type:square">
+  </ul>
+
+
+<h2 id="TTS" style="text-align:center;"><font color="000093">Audio Display Section</font></h2>
+  <p style="text-align: center; color: #061E61; margin: 50px;">This table is an audio sample display interface used to display different audio files and their related information. The "Index" column in the table displays the serial number of each entry for easy reference and search. The "Text" column provides a description of the audio content, including speaker information and language characteristics. The "Ref" and "Audio" columns contain reference audio and generated audio players respectively. Users can play audio files directly in the table to evaluate the sound quality and suitability of the content. This layout is particularly suitable for demonstrations of speech synthesis, sound recognition, or other audio processing techniques, allowing users to visually compare and analyze different audio samples.</p> 
   <ul style="list-style-type:square">
   </ul>
 
@@ -84,11 +90,12 @@
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 
   <!-- 音频展示部分 -->
-  <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+  <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" style="display: flex; justify-content: center; align-items: center;">
     <!-- 音频展示部分 -->
     <div class="audio-collection">
       <table id="audioSamplesTable" style="width: 100%; text-align: center;">
         <tr>
+          <th style="padding: 15px; background-color: #f2f2f2;">Index</th>
           <th style="padding: 15px; background-color: #f2f2f2;">Text</th>
           <th style="padding: 8px; background-color: #f2f2f2;">Ref</th>
           <th style="padding: 8px; background-color: #f2f2f2;">Audio</th>
@@ -97,57 +104,134 @@
       </table>
     </div>
   </div>
-  
 
+
+    <h2 id="TTS" style="text-align:center;"><font color="000093">Evaluation Section</font></h2>
+    <p style="text-align: center; color: #061E61; margin: 50px;">This image provides an intuitive visual representation for evaluating the timbre similarity between the nine audio segments and the original audio. In this visualization, different colors are used to indicate the degree of similarity: the lighter the color, the more similar the generated audio is to the original audio. In this way, observers can quickly identify which audio samples have sound quality that is close to the original samples and which ones deviate significantly. This evaluation tool is particularly valuable for adjusting and improving audio processing models, helping developers and users understand model performance and guiding future optimization directions.</p> 
+    <div style="text-align: center;">
+      <!-- 插入评估图片 -->
+      <img src="img/sim.png" alt="Audio Evaluation" style="max-width: 50%; height: auto;">
+
+    </div>
+
+
+    <p style="text-align: center; color: #061E61; margin: 50px;">In the visualization, synthetic audio is indicated in red, while authentic audio is represented in green. The detection model in the diagram incorrectly classifies a significant amount of synthetic audio as authentic, demonstrating that our model's fidelity is sufficiently high to mimic real audio convincingly.</p> 
+    <div style="text-align: center;">
+      <!-- 插入评估图片 -->
+      <img src="img/fake.png" alt="Audio Evaluation" style="max-width: 60%; height: auto;">
+    </div>
+
+
+    <p style="text-align: center; color: #061E61; margin: 50px;">This table shows three key sound quality evaluation indicators for nine audio files: PESQ score, SI-SDR (in decibels), and STOI score. These indicators are used to objectively evaluate the quality and clarity of audio: PESQ Score: Indicates perceived voice quality. The higher the score, the better the sound quality. SI-SDR (dB): Indicates the ratio of signal to interference, measured in decibels (dB). The higher the value, the less background noise and the better the audio quality. STOI Score: Short-term objective intelligibility index, used to evaluate the intelligibility of speech. A score close to 1 indicates high intelligibility.</p>
+    <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" style="text-align: center;">
+      <table style="margin: 0 auto; width: 80%; border-collapse: collapse; border: 1px solid #ddd;">
+          <tr style="background-color: #f2f2f2;">
+              <th>Audio File</th>
+              <th>PESQ Score</th>
+              <th>SI-SDR (dB)</th>
+              <th>STOI Score</th>
+          </tr>
+          <tr>
+              <td>1.wav</td>
+              <td>1.187073</td>
+              <td>-42.636986</td>
+              <td>0.029044</td>
+          </tr>
+          <tr>
+              <td>2.wav</td>
+              <td>1.133534</td>
+              <td>-40.483088</td>
+              <td>0.082716</td>
+          </tr>
+          <tr>
+              <td>3.wav</td>
+              <td>1.105380</td>
+              <td>-41.818719</td>
+              <td>0.217479</td>
+          </tr>
+          <tr>
+              <td>4.wav</td>
+              <td>1.041535</td>
+              <td>-48.674555</td>
+              <td>0.110729</td>
+          </tr>
+          <tr>
+              <td>5.wav</td>
+              <td>1.091966</td>
+              <td>-51.534328</td>
+              <td>0.148713</td>
+          </tr>
+          <tr>
+              <td>6.wav</td>
+              <td>1.078970</td>
+              <td>-41.375198</td>
+              <td>0.133410</td>
+          </tr>
+          <tr>
+              <td>7.wav</td>
+              <td>3.730686</td>
+              <td>-48.103991</td>
+              <td>0.038178</td>
+          </tr>
+          <tr>
+              <td>8.wav</td>
+              <td>1.178169</td>
+              <td>-41.983814</td>
+              <td>0.170830</td>
+          </tr>
+          <tr>
+              <td>9.wav</td>
+              <td>1.115258</td>
+              <td>-35.990775</td>
+              <td>0.138538</td>
+          </tr>
+      </table>
+  </div>
+  
+   
+
+  
 </main>
 
-<style>
-  .center-text {
-    text-align: center; 
-    vertical-align: middle;
-    background-color: #f2f2f2; 
-    width: 100%;
-    height: 100%;
-  }
-</style>
-
 <script>
-
-
   const table = document.getElementById("audioSamplesTable");
-
-  const datasets = [
-      "true",
-      "gen"
+  const datasets = ["true", "gen"];
+  const text = [
+      '女声四川话，参考音频为中文，生成音频为中文',
+      '郭德纲，参考音频为中文，生成音频为中文',
+      '郭德纲，参考音频为中文，生成音频为英文',
+      '郭毅可，参考音频为中文，生成音频为中文',
+      '郭毅可，参考音频为英文，生成音频为英文',
+      '奥特曼，参考音频为英文，生成音频为英文',
+      '游戏声优，参考音频为日语，生成音频为中文',
+      '动画片女声，参考音频为中文，生成音频为英文',
+      '动画片男声，参考音频为中文，生成音频为英文'
   ];
 
-  const text = ['00000','女声四川话，参考音频为中文，生成音频为中文',
-                '郭德纲，参考音频为中文，生成音频为中文',
-                '郭德纲，参考音频为中文，生成音频为英文',
-                '郭毅可，参考音频为中文，生成音频为中文',
-                '郭毅可，参考音频为英文，生成音频为英文',
-                '奥特曼，参考音频为英文，生成音频为英文',
-                '游戏声优，参考音频为日语，生成音频为中文',
-                '动画片女声，参考音频为中文，生成音频为英文',
-                '动画片男声，参考音频为中文，生成音频为英文'];
-
-
-
-  for (let i = 1; i < 10; i++) {
+  for (let i = 0; i < text.length; i++) {
     let row = document.createElement('tr');
+    
+    // 添加索引单元格
     let indexCell = document.createElement('td');
-    indexCell.style.verticalAlign = 'middle';
-    indexCell.style.textAlign = 'center';
+    indexCell.style.padding = '8px';
     indexCell.style.backgroundColor = '#f2f2f2';
-    indexCell.textContent = text[i];
+    indexCell.textContent = i + 1;  // 索引号从1开始
     row.appendChild(indexCell);
+    
+    // 添加文本单元格
+    let textCell = document.createElement('td');
+    textCell.textContent = text[i];
+    textCell.style.padding = '8px';
+    textCell.style.backgroundColor = '#f2f2f2';
+    row.appendChild(textCell);
 
+    // 添加音频单元格
     datasets.forEach(dataset => {
       let audioCell = document.createElement('td');
       let audio = document.createElement('audio');
       audio.controls = true;
       let source = document.createElement('source');
-      source.src = `./myoutput/${dataset}/${i}.wav`;
+      source.src = `./myoutput/${dataset}/${i + 1}.wav`;
       source.type = 'audio/wav';
       source.onerror = function() {
         audioCell.textContent = 'None';
@@ -160,11 +244,18 @@
 
     table.appendChild(row);
   }
-
-  <!--文字介绍部分-->
-
 </script>
 
+
+<style>
+  .center-text {
+    text-align: center; 
+    vertical-align: middle;
+    background-color: #f2f2f2; 
+    width: 100%;
+    height: 100%;
+  }
+</style>
 
 <script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
