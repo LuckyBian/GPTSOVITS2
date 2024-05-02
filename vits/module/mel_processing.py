@@ -49,11 +49,14 @@ hann_window = {}
 
 
 def spectrogram_torch(y, n_fft, sampling_rate, hop_size, win_size, center=False):
+
+    # 确定信号范围
     if torch.min(y) < -1.0:
         print("min value is ", torch.min(y))
     if torch.max(y) > 1.0:
         print("max value is ", torch.max(y))
 
+    # 窗格初始化
     global hann_window
     dtype_device = str(y.dtype) + "_" + str(y.device)
     wnsize_dtype_device = str(win_size) + "_" + dtype_device
@@ -62,12 +65,16 @@ def spectrogram_torch(y, n_fft, sampling_rate, hop_size, win_size, center=False)
             dtype=y.dtype, device=y.device
         )
 
+    # 序列填充
     y = torch.nn.functional.pad(
         y.unsqueeze(1),
         (int((n_fft - hop_size) / 2), int((n_fft - hop_size) / 2)),
         mode="reflect",
     )
     y = y.squeeze(1)
+
+
+    # 短时傅里叶变换
     spec = torch.stft(
         y,
         n_fft,
@@ -81,6 +88,8 @@ def spectrogram_torch(y, n_fft, sampling_rate, hop_size, win_size, center=False)
         return_complex=False,
     )
 
+
+    # 计算并返回频谱幅度
     spec = torch.sqrt(spec.pow(2).sum(-1) + 1e-6)
     return spec
 

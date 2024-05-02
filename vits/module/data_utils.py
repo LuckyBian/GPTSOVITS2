@@ -21,10 +21,12 @@ from scipy.io import wavfile
 from io import BytesIO
 from my_utils import load_audio
 
-# ZeroDivisionError fixed by Tybost (https://github.com/RVC-Boss/GPT-SoVITS/issues/79)
+
+
 class TextAudioSpeakerLoader(torch.utils.data.Dataset):
     """
-    1) loads audio, speaker_id, text pairs
+    1) loads 音频, speaker id, 文字： 导入的数据为 2, 4, 5
+    2: 拼音标点文本.txt       4: hubert提取的音频的编码   5: 重构的音频
     2) normalizes text and converts them to sequences of integers
     3) computes spectrograms from audio files.
     """
@@ -34,29 +36,44 @@ class TextAudioSpeakerLoader(torch.utils.data.Dataset):
         self.path2 = "/home/weizhenbian/mycode/features/guo/2-name2text-0.txt"
         self.path4 = "/home/weizhenbian/mycode/features/guo/4-cnhubert"
         self.path5 = "/home/weizhenbian/mycode/features/guo/5-wav32k"
+        
+        # 查看是否存在
         assert os.path.exists(self.path2)
         assert os.path.exists(self.path4)
         assert os.path.exists(self.path5)
+
+        # 让 4和 5的名字相互对应
         names4 = set([name[:-3] for name in list(os.listdir(self.path4))])
         names5 = set(os.listdir(self.path5))
+
         self.phoneme_data = {}
+
+        # 读取每一行数据
         with open(self.path2, "r", encoding="utf8") as f:
             lines = f.read().strip("\n").split("\n")
 
+        # 读取到字典里：文件名：拼音编码
         for line in lines:
             tmp = line.split("\t")
             if (len(tmp) != 4):
                 continue
             self.phoneme_data[tmp[0]] = [tmp[1]]
 
+        # 找到共同的文件名，存成一个list
         self.audiopaths_sid_text = list(set(self.phoneme_data) & names4 & names5)
         tmp = self.audiopaths_sid_text
+
+        # 查看文件数量
         leng = len(tmp)
         min_num = 100
+
+        # 如果数据不足，则进行扩充
         if (leng < min_num):
             self.audiopaths_sid_text = []
             for _ in range(max(2, int(min_num / leng))):
                 self.audiopaths_sid_text += tmp
+
+        # 设置一系列参数
         self.max_wav_value = hparams.max_wav_value
         self.sampling_rate = hparams.sampling_rate
         self.filter_length = hparams.filter_length
@@ -68,6 +85,7 @@ class TextAudioSpeakerLoader(torch.utils.data.Dataset):
         random.seed(1234)
         random.shuffle(self.audiopaths_sid_text)
 
+        # 输出文件数量
         print("phoneme_data_len:", len(self.phoneme_data.keys()))
         print("wav_data_len:", len(self.audiopaths_sid_text))
 
@@ -75,25 +93,37 @@ class TextAudioSpeakerLoader(torch.utils.data.Dataset):
         lengths = []
         skipped_phone = 0
         skipped_dur = 0
+
+        # 对每个文件进行处理，path为文件名
         for audiopath in tqdm(self.audiopaths_sid_text):
             try:
+                # 获取拼音
                 phoneme = self.phoneme_data[audiopath][0]
+                
+                # 对拼音进行拆分
                 phoneme = phoneme.split(' ')
+
+                # 将不同的拼音转换成编码
                 phoneme_ids = cleaned_text_to_sequence(phoneme)
             except Exception:
                 print(f"{audiopath} not in self.phoneme_data !")
                 skipped_phone += 1
                 continue
 
+            # 计算文件大小
             size = os.path.getsize("%s/%s" % (self.path5, audiopath))
             duration = size / self.sampling_rate / 2
 
+            # 如果为空，则直接跳过
             if duration == 0:
                 print(f"Zero duration for {audiopath}, skipping...")
                 skipped_dur += 1
                 continue
 
+            # 防止过长或者过短
             if 54 > duration > 0.6 or self.val:
+
+                # 得到文件名和对应拼音的id
                 audiopaths_sid_text_new.append([audiopath, phoneme_ids])
                 lengths.append(size // (2 * self.hop_length))
             else:
@@ -102,17 +132,31 @@ class TextAudioSpeakerLoader(torch.utils.data.Dataset):
 
         print("skipped_phone: ", skipped_phone, ", skipped_dur: ", skipped_dur)
         print("total left: ", len(audiopaths_sid_text_new))
+
         assert len(audiopaths_sid_text_new) > 1  # 至少能凑够batch size，这里todo
+
         self.audiopaths_sid_text = audiopaths_sid_text_new
         self.lengths = lengths
 
     def get_audio_text_speaker_pair(self, audiopath_sid_text):
+
+        # 得到一个文件的  文件名和对应的拼音id
         audiopath, phoneme_ids = audiopath_sid_text
+
+        # 装换成张量
         text = torch.FloatTensor(phoneme_ids)
+
         try:
+            # 拿到stft频谱和音频张量
             spec, wav = self.get_audio("%s/%s" % (self.path5, audiopath))
+
             with torch.no_grad():
+
+                # 得到音频在潜在空间的编码
                 ssl = torch.load("%s/%s.pt" % (self.path4, audiopath), map_location="cpu")
+
+                # 如果维度不一样，则进行填充
+                # 查看时间维度上是否一样
                 if (ssl.shape[-1] != spec.shape[-1]):
                     typee = ssl.dtype
                     ssl = F.pad(ssl.float(), (0, 1), mode="replicate").to(typee)
@@ -124,16 +168,30 @@ class TextAudioSpeakerLoader(torch.utils.data.Dataset):
             ssl = torch.zeros(1, 768, 100)
             text = text[-1:]
             print("load audio or ssl error!!!!!!", audiopath)
+
+            # 最后返回的是： 音频编码， stft图谱， 音频张量， 拼音张量
         return (ssl, spec, wav, text)
 
     def get_audio(self, filename):
-        audio_array = load_audio(filename, self.sampling_rate)  # load_audio的方法是已经归一化到-1~1之间的，不用再/32768
-        audio = torch.FloatTensor(audio_array)  # /32768
+        # 将音频导入
+        audio_array = load_audio(filename, self.sampling_rate)
+
+        # 转换成张量
+        audio = torch.FloatTensor(audio_array)
+
         audio_norm = audio
+
+        # 添加一个新的维度，批次维度
         audio_norm = audio_norm.unsqueeze(0)
+
+        # 得到频谱
         spec = spectrogram_torch(audio_norm, self.filter_length, self.sampling_rate, self.hop_length, self.win_length,
                                   center=False)
+        
+        # 去除一个维度
         spec = torch.squeeze(spec, 0)
+
+        # 返回频谱和audio张量
         return spec, audio_norm
 
     def get_sid(self, sid):

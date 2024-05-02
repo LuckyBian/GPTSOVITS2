@@ -737,27 +737,38 @@ class MelStyleEncoder(nn.Module):
         return out
 
     def forward(self, x, mask=None):
+        # 改变一下顺序
         x = x.transpose(1, 2)
+
+        # 将掩码转变成int 并检查哪里为0
+        # 为0的地方变成True, 不为0的地方为False
         if mask is not None:
             mask = (mask.int() == 0).squeeze(1)
+
         max_len = x.shape[1]
+
+        # 得到注意力掩码，不将计算资源浪费在无用的地方
         slf_attn_mask = (
             mask.unsqueeze(1).expand(-1, max_len, -1) if mask is not None else None
         )
 
-        # spectral
+        # spectral 过两个线性层,output
         x = self.spectral(x)
-        # temporal
+
+        # temporal 卷积GLU
         x = x.transpose(1, 2)
         x = self.temporal(x)
         x = x.transpose(1, 2)
+
         # self-attention
         if mask is not None:
             x = x.masked_fill(mask.unsqueeze(-1), 0)
         x, _ = self.slf_attn(x, mask=slf_attn_mask)
-        # fc
+
+        # 全连接层
         x = self.fc(x)
-        # temoral average pooling
+        
+        # average pooling 池化层
         w = self.temporal_avg_pool(x, mask=mask)
 
         return w.unsqueeze(-1)

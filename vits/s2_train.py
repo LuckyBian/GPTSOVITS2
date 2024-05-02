@@ -44,6 +44,7 @@ print("Using device:", device)
 
 def main():
 
+    # 设置设备
     if torch.cuda.is_available():
         n_gpus = torch.cuda.device_count()
     else:
@@ -62,21 +63,28 @@ def main():
 
 
 def run(rank, n_gpus, hps):
+    # 只使用一个GPU
     os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
     global global_step
+
+    # rank 0 为主进程，设置一些日志书写
     if rank == 0:
         logger = utils.get_logger(hps.data.exp_dir)
         logger.info(hps)
         writer = SummaryWriter(log_dir=hps.s2_ckpt_dir)
         writer_eval = SummaryWriter(log_dir=os.path.join(hps.s2_ckpt_dir, "eval"))
 
+    # 分布式处理，加快训练
     dist.init_process_group(
         backend = "gloo" if os.name == "nt" or not torch.cuda.is_available() else "nccl",
         init_method="env://",
         world_size=n_gpus,
         rank=rank,
     )
+
+    # 保证生成的随机数是相通的
     torch.manual_seed(hps.train.seed)
+
     if torch.cuda.is_available():
         torch.cuda.set_device(rank)
 
@@ -109,7 +117,11 @@ def run(rank, n_gpus, hps):
         rank=rank,
         shuffle=True,
     )
+
+
     collate_fn = TextAudioSpeakerCollate()
+
+
     train_loader = DataLoader(
         train_dataset,
         num_workers=6,
@@ -133,7 +145,12 @@ def run(rank, n_gpus, hps):
         **hps.model,
     ).to(device)
 
-    net_d = MultiPeriodDiscriminator(hps.model.use_spectral_norm).cuda(rank) if torch.cuda.is_available() else MultiPeriodDiscriminator(hps.model.use_spectral_norm).to(device)
+    net_d = MultiPeriodDiscriminator(
+        hps.model.use_spectral_norm
+        ).cuda(rank) if torch.cuda.is_available() else MultiPeriodDiscriminator(hps.model.use_spectral_norm).to(device)
+
+
+
     for name, param in net_g.named_parameters():
         if not param.requires_grad:
             print(name, "not requires_grad")
@@ -146,6 +163,8 @@ def run(rank, n_gpus, hps):
         net_g.parameters(),
     )
 
+
+    # 定义生成器和判别器的优化器
     optim_g = torch.optim.AdamW(
         [
             {"params": base_params, "lr": hps.train.learning_rate},
@@ -173,6 +192,8 @@ def run(rank, n_gpus, hps):
         eps=hps.train.eps,
     )
 
+
+    # 分布式训练
     if torch.cuda.is_available():
         net_g = DDP(net_g, device_ids=[rank], find_unused_parameters=True)
         net_d = DDP(net_d, device_ids=[rank], find_unused_parameters=True)
@@ -180,7 +201,8 @@ def run(rank, n_gpus, hps):
         net_g = net_g.to(device)
         net_d = net_d.to(device)
 
-    try:  # 如果能加载自动resume
+    # 加载预训练模型：生成器和判别器
+    try:
         _, _, _, epoch_str = utils.load_checkpoint(
             utils.latest_checkpoint_path("%s/logs_s2" % hps.data.exp_dir, "D_*.pth"),
             net_d,
@@ -195,8 +217,7 @@ def run(rank, n_gpus, hps):
             optim_g,
         )
         global_step = (epoch_str - 1) * len(train_loader)
-        # epoch_str = 1
-        # global_step = 0
+        
     except:
         epoch_str = 1
         global_step = 0
@@ -222,18 +243,24 @@ def run(rank, n_gpus, hps):
                     torch.load(hps.train.pretrained_s2D, map_location="cpu")["weight"]
                 )
             )
+
+
+    # 对生成器和判别器的学习率进行调节
     scheduler_g = torch.optim.lr_scheduler.ExponentialLR(
         optim_g, gamma=hps.train.lr_decay, last_epoch=-1
     )
     scheduler_d = torch.optim.lr_scheduler.ExponentialLR(
         optim_d, gamma=hps.train.lr_decay, last_epoch=-1
     )
+
+
     for _ in range(epoch_str):
         scheduler_g.step()
         scheduler_d.step()
 
     scaler = GradScaler(enabled=hps.train.fp16_run)
 
+    # 开始训练
     for epoch in range(epoch_str, hps.train.epochs + 1):
         if rank == 0:
             train_and_evaluate(
@@ -269,6 +296,7 @@ def run(rank, n_gpus, hps):
 def train_and_evaluate(
     rank, epoch, hps, nets, optims, schedulers, scaler, loaders, logger, writers
 ):
+    # 拿到参数
     net_g, net_d = nets
     optim_g, optim_d = optims
     # scheduler_g, scheduler_d = schedulers
@@ -276,34 +304,45 @@ def train_and_evaluate(
     if writers is not None:
         writer, writer_eval = writers
 
+    # 保证每次进行适当的洗牌并保证每个进程的一致性
     train_loader.batch_sampler.set_epoch(epoch)
+
     global global_step
 
+    # 设置为训练
     net_g.train()
     net_d.train()
+
+    # 开始从前面定义的实例中拿出数据并进行处理
     for batch_idx, (
-        ssl,
+        ssl, # 音频编码
         ssl_lengths,
-        spec,
+        spec, # 音频的stft图谱
         spec_lengths,
-        y,
+        y, # 音频张量
         y_lengths,
-        text,
+        text, # 拼音张量
         text_lengths,
     ) in tqdm(enumerate(train_loader)):
+        # 查看是否有GPU
         if torch.cuda.is_available():
+
+            # 将所有的数据移动到cuda上面
             spec, spec_lengths = spec.cuda(rank, non_blocking=True), spec_lengths.cuda(
                 rank, non_blocking=True
             )
+
             y, y_lengths = y.cuda(rank, non_blocking=True), y_lengths.cuda(
                 rank, non_blocking=True
             )
+
             ssl = ssl.cuda(rank, non_blocking=True)
             ssl.requires_grad = False
             # ssl_lengths = ssl_lengths.cuda(rank, non_blocking=True)
             text, text_lengths = text.cuda(rank, non_blocking=True), text_lengths.cuda(
                 rank, non_blocking=True
             )
+
         else:
             spec, spec_lengths = spec.to(device), spec_lengths.to(device)
             y, y_lengths = y.to(device), y_lengths.to(device)
@@ -312,7 +351,10 @@ def train_and_evaluate(
             # ssl_lengths = ssl_lengths.cuda(rank, non_blocking=True)
             text, text_lengths = text.to(device), text_lengths.to(device)
 
+
+        # 用来自动分配空间，设置精度，提升效率
         with autocast(enabled=hps.train.fp16_run):
+            # 返回的值被打包成了一个元组
             (
                 y_hat,
                 kl_ssl,

@@ -889,7 +889,9 @@ class SynthesizerTrn(nn.Module):
         else:
             self.ssl_proj = nn.Conv1d(ssl_dim, ssl_dim, 1, stride=1)
 
+        # 对编码进行进一步编码，与codebook相对应
         self.quantizer = ResidualVectorQuantizer(dimension=ssl_dim, n_q=1, bins=1024)
+
         if freeze_quantizer:
             self.ssl_proj.requires_grad_(False)
             self.quantizer.requires_grad_(False)
@@ -898,33 +900,55 @@ class SynthesizerTrn(nn.Module):
             # self.enc_p.encoder_text.requires_grad_(False)
             # self.enc_p.mrte.requires_grad_(False)
 
-    def forward(self, ssl, y, y_lengths, text, text_lengths):
+    def forward(self,
+                 ssl, # 音频编码
+                 y, # 图谱
+                 y_lengths, # 图谱长度
+                 text, # 拼音编码
+                 text_lengths):
+        
+        # 根据音频长度生成掩码
         y_mask = torch.unsqueeze(commons.sequence_mask(y_lengths, y.size(2)), 1).to(
             y.dtype
         )
+
+        # 对图谱特征进行提取，其中用到了GLU, 线性层，自注意力，池化，dropout，全连接
         ge = self.ref_enc(y * y_mask, y_mask)
 
         with autocast(enabled=False):
+
+            # 让音频编码过一个卷积
             ssl = self.ssl_proj(ssl)
+
+            # 进一步编码，与codebook相对应
             quantized, codes, commit_loss, quantized_list = self.quantizer(
                 ssl, layers=[0]
             )
 
         if self.semantic_frame_rate == "25hz":
+            # 进行上采样
             quantized = F.interpolate(
                 quantized, size=int(quantized.shape[-1] * 2), mode="nearest"
             )
 
         x, m_p, logs_p, y_mask = self.enc_p(
-            quantized, y_lengths, text, text_lengths, ge
+            quantized, # 音频编码
+            y_lengths, 
+            text, # 拼音
+            text_lengths, 
+            ge # 图谱
         )
+
         z, m_q, logs_q, y_mask = self.enc_q(y, y_lengths, g=ge)
+
         z_p = self.flow(z, y_mask, g=ge)
 
         z_slice, ids_slice = commons.rand_slice_segments(
             z, y_lengths, self.segment_size
         )
+
         o = self.dec(z_slice, g=ge)
+        
         return (
             o,
             commit_loss,
