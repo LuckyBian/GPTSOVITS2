@@ -314,6 +314,8 @@ face/data/video.mp4
 python inference.py --checkpoint_path path to wav2lip_gan.pth --face " path to video.mp4" --audio "path to audio.wav"
 ```
 
+If the above code does not respond for a long time, open and run Wav2Lip.ipynb.
+
 ## SECTION 8: Evaluation
 
 ### Create the Env
