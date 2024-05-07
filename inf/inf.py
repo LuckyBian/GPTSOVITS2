@@ -380,8 +380,11 @@ def get_tts_wav(ref_wav_path,
             all_phoneme_ids = torch.LongTensor(phones2).to(device).unsqueeze(0)
 
         bert = bert.to(device).unsqueeze(0)
+
         all_phoneme_len = torch.tensor([all_phoneme_ids.shape[-1]]).to(device)
+
         prompt = prompt_semantic.unsqueeze(0).to(device)
+        
         t2 = ttime()
 
         with torch.no_grad():
