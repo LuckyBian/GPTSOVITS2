@@ -40,11 +40,7 @@ With the further improvement and optimization of the technology, we expect this 
 | Liu Siyan     | A0285857H | ALL| E1221669@u.nus.edu |
 
 
-## SECTION 4 : BUSINESS VIDEO 
-
-
-
-## SECTION 5 : USER GUIDE--Voice Clone
+## SECTION 4 : USER GUIDE--Voice Clone
 
 ### Create the Env:
 ```
@@ -186,7 +182,7 @@ Pay attention to modifying the path. There are a lot that need to be modified he
 cd inf
 python inf.py
 ```
-## SECTION 6: Multi-Role Control
+## SECTION 5: Multi-Role Control
 
 Through the following code, you can implement multi-role cross-language (Chinese, English, Japanese) TTS. The code will automatically cut each sentence and reassemble it according to the character. Finally, the speech translation conversion of an entire audio piece is realized (Demo 3).
 
@@ -234,7 +230,7 @@ Finally, all the audio is spliced together through combine.py. And refer to the 
 python combine.py
 ```
 
-## SECTION 7: Face
+## SECTION 6: Face
 
 After generating the audio, you can use the face component to combine the audio with the video and make the mouth shape of the characters in the video change with the audio content.
 
@@ -318,7 +314,7 @@ python inference.py --checkpoint_path path to wav2lip_gan.pth --face " path to v
 
 If the above code does not respond for a long time, open and run Wav2Lip.ipynb.
 
-## SECTION 8: Evaluation
+## SECTION 7: Evaluation
 
 ### Create the Env
 ```
