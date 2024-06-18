@@ -93,9 +93,13 @@ If your python version is too low to use the resemble-enhance. You can do the fo
 
 ```
 cd denoise
+python get_voice.py --model_name HP2-人声vocals+非人声instrumentals --inp_root path/to/ori.wav --save_root_vocal path/to/save/output/folder --save_root_ins path/to/noise/folder
 ```
 
-
+3. Run following codes:
+```
+python get_voice.py --model_name DeEchoAggressive --inp_root path/to/ori.wav --save_root_vocal path/to/save/output/folder --save_root_ins path/to/noise/folder
+```
 
 
 #### Step 2: Cut
