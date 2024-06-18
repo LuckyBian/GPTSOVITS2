@@ -85,9 +85,15 @@ pip install resemble-enhance --upgrade --pre
 resemble-enhance data/ori data/denoise
 ```
 
-If your python version is too low to use the resemble-enhance. You can run following code to denoise:
+If your python version is too low to use the resemble-enhance. You can do the following steps:
 
-1.download the [model1](https://drive.google.com/file/d/187AqdBqSEhr44cLfiV1FNxJsVEwr4GIm/view?usp=sharing) and [model2](https://drive.google.com/file/d/1OqqJj3Qo5hcfopyxtkdRhsc1Y7oEIugF/view?usp=drive_link), and then put them to the 'denoise/uvr5_weights'
+1. Download the [model1](https://drive.google.com/file/d/187AqdBqSEhr44cLfiV1FNxJsVEwr4GIm/view?usp=sharing) and [model2](https://drive.google.com/file/d/1OqqJj3Qo5hcfopyxtkdRhsc1Y7oEIugF/view?usp=drive_link), and then put them to the 'denoise/uvr5_weights'
+
+2. Run following codes:
+
+```
+cd denoise
+```
 
 
 
